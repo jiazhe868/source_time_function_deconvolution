@@ -81,19 +81,6 @@ def decon_optim(w, u, lambda_reg, d2_reg, group_size=20):
 
 
 def apply_taper(data, win_b, win_e, delta, alpha):
-    """
-    Apply a taper to the left side of the data (first `win_b` seconds) to smoothly reduce the amplitude to 0.
-    
-    Parameters:
-    - data: The waveform data to taper
-    - win_b: The left window length (e.g., -5s) to taper
-    - win_e: The right window length (e.g., 30s) to remain unaffected
-    - delta: Sampling interval of the data
-    - alpha: The proportion of the Tukey window used for tapering
-    
-    Returns:
-    - Tapered data
-    """
     npts_b = int(win_b / delta)  # Number of points for the left taper
     npts_e = int(win_e / delta)  # Total number of points for the remaining data
 
